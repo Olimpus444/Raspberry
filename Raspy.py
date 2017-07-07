@@ -7,6 +7,7 @@ from datetime import datetime
 import urllib, json
 import RPi.GPIO as GPIO
 import threading
+global mode
 switch1 = 17
 switch2 = 26
 GPIO.setmode(GPIO.BCM)
