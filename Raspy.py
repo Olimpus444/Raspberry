@@ -29,43 +29,12 @@ device = led.sevensegment(cascaded=2)
 
 #startup
 print "Startujemy!"
-device.write_text(1, "-ARHNEU-")
-#dodaj kropke po N
-device.letter(1, 4, "N", 1)
-time.sleep(2)
-mode = 1;
-level = 1;
-device.brightness(level)
-refresh = 99;
-anim = 8;		
-		
-ytsubs();
-twitch();
-autogo();
+device.write_text(1, "-WITAJ-")	
 
 while True:
 	now = datetime.now()
+	
 	if mode == 1:
-		device.write_text(1, "Y " + ytsubs.subs)
-		#oznacz odswiezenie kropka
-		device.letter(1, 8, "Y", tick)
-			
-	if mode == 2:
-		try:
-			getattr(twitch, 'subs')
-		except AttributeError:
-			device.write_text(1, "T")
-			if anim != 8:
-				device.letter(1, anim, " ", 1)
-			else:
-				device.letter(1, anim, "T", 1)
-			anim -= 1
-			if anim < 1:
-				anim = 8
-		else:
-			device.write_text(1, "T " +	twitch.subs)
-			device.letter(1, 8, "T", tick)
-	if mode == 3:
 		hour = now.hour
 		minute = now.minute
 		second = now.second
@@ -81,7 +50,7 @@ while True:
 		# Set seconds
 		device.letter(1, 2, int(second / 10))   # Tens
 		device.letter(1, 1, second % 10)        # Ones
-	if mode == 4:
+	if mode == 2:
 		day = now.day
 		month = now.month
 		year = now.year - 2000
@@ -97,7 +66,7 @@ while True:
 		# Set day
 		device.letter(1, 2, int(year / 10))     # Tens
 		device.letter(1, 1, year % 10)     # Ones
-	if mode == 5:
+	if mode == 3:
 		auto = 1;	
 		mode = 1;
 	
@@ -135,4 +104,4 @@ while True:
 		print "Poziom jasnosci:", level
 		time.sleep(0.5);
 	else:
-pass
+		pass
