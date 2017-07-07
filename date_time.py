@@ -27,7 +27,7 @@ def date(device, deviceId):
 def clock(device, deviceId, seconds):
 
     for _ in xrange(seconds):
-    hour = now.hour
+    		hour = now.hour
 		minute = now.minute
 		second = now.second
 		dot = second % 2 == 0
