@@ -27,12 +27,11 @@ def date(device, deviceId):
 def clock(device, deviceId, seconds):
 
     for _ in xrange(seconds):
-        now = datetime.now()
-        hour = now.hour
-        minute = now.minute
-        second = now.second
-        dot = second % 2 == 0                # calculate blinking dot
-        # Set hours
+    hour = now.hour
+		minute = now.minute
+		second = now.second
+		dot = second % 2 == 0
+		# Set hours
 		device.letter(1, 8, int(hour / 10))     # Tens
 		device.letter(1, 7, hour % 10)     # Ones
 		device.letter(1, 6, " ", 1)
@@ -43,7 +42,6 @@ def clock(device, deviceId, seconds):
 		# Set seconds
 		device.letter(1, 2, int(second / 10))   # Tens
 		device.letter(1, 1, second % 10) # Ones
-        time.sleep(1)
 
 device = led.sevensegment()
 
