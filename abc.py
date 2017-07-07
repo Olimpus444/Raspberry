@@ -95,7 +95,7 @@ while True:
 			auto = 0
 			mode = 1
 			print "Auto Off"
-		elif mode < 6:
+		elif mode < 4:
 			mode += 1
 		else:
 			mode = 1
