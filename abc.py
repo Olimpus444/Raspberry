@@ -145,5 +145,3 @@ while True:
 		time.sleep(0.5);
 	else:
 		pass
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
