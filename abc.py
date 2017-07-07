@@ -26,7 +26,7 @@ switch2 = 26
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(switch1, GPIO.IN)
 GPIO.setup(switch2, GPIO.IN) 
-#url do liczby subow
+
 tick = 0;
 auto = 0;
 		
@@ -100,14 +100,10 @@ while True:
 		else:
 			mode = 1
 		if mode == 1:
-			device.write_text(1, "SUBY YT")
-		if mode == 2:
-			device.write_text(1, "LIVE")
-		if mode == 3:
 			device.write_text(1, "CZAS")
-		if mode == 4:
+		if mode == 2:
 			device.write_text(1, "DATA")
-		if mode == 5:
+		if mode == 3:
 			device.write_text(1, "AUTO")
 		time.sleep(1)
 	#wskaznik jasnosci
