@@ -42,7 +42,7 @@ def clock(device, deviceId, seconds):
 		device.letter(1, 3, " ", 1)
 		# Set seconds
 		device.letter(1, 2, int(second / 10))   # Tens
-device.letter(1, 1, second % 10) # Ones
+		device.letter(1, 1, second % 10) # Ones
         time.sleep(1)
 
 device = led.sevensegment()
