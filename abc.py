@@ -62,7 +62,7 @@ while True:
 		second = now.second
 		dot = second % 2 == 0
 		# Set hours
-		device.letter(1, 8, ((int(hour / 10))++2)     # Tens
+		device.letter(1, 8, (int(hour / 10))     # Tens
 		device.letter(1, 7, hour % 10)     # Ones
 		device.letter(1, 6, " ", 1)
 		# Set minutes
