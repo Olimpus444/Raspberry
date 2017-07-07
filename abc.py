@@ -1,3 +1,19 @@
+#!/usr/bin/env python
+
+# arhn.eu subscription counter for ZEROSEG sample
+# Based on the ZEROSEG example libraries
+# This is just a poorly written sample for reference only, please keep that in mind.
+#
+# This script requires the ZeroSeg library
+# located at
+# https://github.com/AverageManVsPi/ZeroSeg
+# 
+# The Youtube and Twitch functionality
+# uses the official APIs and as such
+# require a free dev API keys.
+# These need to be filled in the
+# respective variables (lines 30 and 59)
+
 import ZeroSeg.led as led
 import time
 import random
@@ -11,43 +27,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(switch1, GPIO.IN)
 GPIO.setup(switch2, GPIO.IN) 
 #url do liczby subow
-url = "https://www.googleapis.com/youtube/v3/channels?part=statistics&forUsername=arhneu&fields=items/statistics/subscriberCount&key=YOUR YOUTUBE API KEY HERE"
-ytactive = False
-twactive = False
 tick = 0;
 auto = 0;
-
-def ytsubs():
-	global mode
-	global tick
-	threading.Timer(5.0, ytsubs).start()
-	if mode == 1:
-		if tick == 0:
-			tick = 1
-		else:
-			tick = 0
-		response = urllib.urlopen(url)
-		data = json.loads(response.read())
-		print "Youtube Refresh: ", data['items'][0]['statistics'].values()[0]
-		ytsubs.subs = data['items'][0]['statistics'].values()[0]
-
-def twitch():
-	global mode
-	global tick
-	threading.Timer(5.0, twitch).start()
-	if mode == 2:
-		if tick == 0:
-			tick = 1
-		else:
-			tick = 0
-		response = urllib.urlopen("https://api.twitch.tv/kraken/streams/arhneu?client_id=YOUR TWITCH API KEY HERE")
-		data = json.loads(response.read())
-		twitch.subs = "OFF";
-		if data['stream'] != None:
-			print "Twitch Refresh: ", data['stream']['viewers']
-			twitch.subs = str(data['stream']['viewers'])
-		else:
-			print "Twitch Offline"
 		
 def autogo():
 	global mode
@@ -62,21 +43,14 @@ def autogo():
 		
 device = led.sevensegment(cascaded=2)
 
-#startup
-print "Startujemy!"
-device.write_text(1, "-ARHNEU-")
-#dodaj kropke po N
-device.letter(1, 4, "N", 1)
+
 time.sleep(2)
 mode = 1;
 level = 1;
 device.brightness(level)
 refresh = 99;
 anim = 8;		
-		
-ytsubs();
-twitch();
-autogo();
+
 
 while True:
 	now = datetime.now()
@@ -171,3 +145,5 @@ while True:
 		time.sleep(0.5);
 	else:
 		pass
+Contact GitHub API Training Shop Blog About
+© 2017 GitHub, Inc. Terms Privacy Security Status Help
