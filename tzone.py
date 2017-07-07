@@ -7,7 +7,6 @@
 # located at
 # https://github.com/AverageManVsPi/ZeroSeg
 
-from pytz import timezone
 import ZeroSeg.led as led
 import time
 import random
@@ -47,10 +46,6 @@ device.brightness(level)
 refresh = 99;
 anim = 8;		
 
-timezonelist = ['UTC','US/Pacific','Europe/Berlin']
-for zone in timezonelist:
-
-    now_time = datetime.now(timezone(zone))
 
 
 
@@ -62,7 +57,7 @@ while True:
 		second = now.second
 		dot = second % 2 == 0
 		# Set hours
-		device.letter(1, 8, int(hour / 10)     # Tens
+		device.letter(1, 8, int(hour / 10))     # Tens
 		device.letter(1, 7, hour % 10)     # Ones
 		device.letter(1, 6, " ", 1)
 		# Set minutes
