@@ -46,5 +46,5 @@ while True:
     date(device, 0)
     time.sleep(5)
     device.clear()
-    clock(device, 0, seconds=5)
+    clock(device, 0, seconds=120)
 device.clear()
