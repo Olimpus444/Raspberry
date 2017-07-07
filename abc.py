@@ -43,6 +43,8 @@ def autogo():
 		
 device = led.sevensegment(cascaded=2)
 
+autogo();
+
 
 time.sleep(2)
 mode = 1;
