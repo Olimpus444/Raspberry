@@ -36,7 +36,7 @@ def autogo():
 	global auto
 	if auto == 1:
 		mode += 1
-		if mode == 3:
+		if mode == 5:
 			mode = 1
 		print "Auto Switch: ", mode
 		
