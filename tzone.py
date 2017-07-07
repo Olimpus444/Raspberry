@@ -50,7 +50,7 @@ anim = 8;
 
 
 while True:
-	now = datetime.now()
+	now = datetime.datetime.now()
 	if mode == 1:
 		hour = now.hour
 		minute = now.minute
