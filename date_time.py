@@ -33,11 +33,16 @@ def clock(device, deviceId, seconds):
         second = now.second
         dot = second % 2 == 0                # calculate blinking dot
         # Set hours
-        device.letter(deviceId, 4, int(hour / 10))     # Tens
-        device.letter(deviceId, 3, hour % 10, dot)     # Ones
-        # Set minutes
-        device.letter(deviceId, 2, int(minute / 10))   # Tens
-        device.letter(deviceId, 1, minute % 10)        # Ones
+		device.letter(1, 8, int(hour / 10))     # Tens
+		device.letter(1, 7, hour % 10)     # Ones
+		device.letter(1, 6, " ", 1)
+		# Set minutes
+		device.letter(1, 5, int(minute / 10))   # Tens
+		device.letter(1, 4, minute % 10)        # Ones
+		device.letter(1, 3, " ", 1)
+		# Set seconds
+		device.letter(1, 2, int(second / 10))   # Tens
+device.letter(1, 1, second % 10) # Ones
         time.sleep(1)
 
 device = led.sevensegment()
