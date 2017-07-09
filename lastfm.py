@@ -106,7 +106,7 @@ if __name__ == '__main__':
 device = led.sevensegment()
 
 while True:
-device.write_text(1, text)
+device.show_message(1, text)
     for _ in range(500):
 	device.rotate_left()
 time.sleep(0.3)
