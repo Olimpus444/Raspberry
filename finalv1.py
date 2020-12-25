@@ -51,7 +51,7 @@ anim = 8;
 
 while True:
 	if mode == 1:
-		device.write_text(1, "TEXTTTTT")
+		device.write_text(1, "LONG TEXT 2")
 	# now = datetime.now()
 	# if mode == 1:
 	# 	hour = now.hour
