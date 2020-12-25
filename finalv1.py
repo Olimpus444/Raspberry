@@ -36,7 +36,7 @@ def autogo():
 		
 device = led.sevensegment(cascaded=2)
 
-autogo();
+autogo()
 
 
 time.sleep(2)
@@ -50,39 +50,40 @@ anim = 8;
 
 
 while True:
-	now = datetime.now()
-	if mode == 1:
-		hour = now.hour
-		minute = now.minute
-		second = now.second
-		dot = second % 2 == 0
-		# Set hours
-		device.letter(1, 8, int(hour / 10))     # Tens
-		device.letter(1, 7, hour % 10)     # Ones
-		device.letter(1, 6, " ", 1)
-		# Set minutes
-		device.letter(1, 5, int(minute / 10))   # Tens
-		device.letter(1, 4, minute % 10)        # Ones
-		device.letter(1, 3, " ", 1)
-		# Set seconds
-		device.letter(1, 2, int(second / 10))   # Tens
-		device.letter(1, 1, second % 10)        # Ones
-	if mode == 2:
-		day = now.day
-		month = now.month
-		year = now.year - 2000
+	device.write_text(1, "TEXTTTTT")
+	# now = datetime.now()
+	# if mode == 1:
+	# 	hour = now.hour
+	# 	minute = now.minute
+	# 	second = now.second
+	# 	dot = second % 2 == 0
+	# 	# Set hours
+	# 	device.letter(1, 8, int(hour / 10))     # Tens
+	# 	device.letter(1, 7, hour % 10)     # Ones
+	# 	device.letter(1, 6, " ", 1)
+	# 	# Set minutes
+	# 	device.letter(1, 5, int(minute / 10))   # Tens
+	# 	device.letter(1, 4, minute % 10)        # Ones
+	# 	device.letter(1, 3, " ", 1)
+	# 	# Set seconds
+	# 	device.letter(1, 2, int(second / 10))   # Tens
+	# 	device.letter(1, 1, second % 10)        # Ones
+	# if mode == 2:
+	# 	day = now.day
+	# 	month = now.month
+	# 	year = now.year - 2000
 
-		# Set day
-		device.letter(1, 8, int(day / 10))     # Tens
-		device.letter(1, 7, day % 10)          # Ones
-		device.letter(1, 6, '-')               # dash
-		# Set day
-		device.letter(1, 5, int(month / 10))     # Tens
-		device.letter(1, 4, month % 10)     # Ones
-		device.letter(1, 3, '-')               # dash
-		# Set day
-		device.letter(1, 2, int(year / 10))     # Tens
-		device.letter(1, 1, year % 10)     # Ones
+	# 	# Set day
+	# 	device.letter(1, 8, int(day / 10))     # Tens
+	# 	device.letter(1, 7, day % 10)          # Ones
+	# 	device.letter(1, 6, '-')               # dash
+	# 	# Set day
+	# 	device.letter(1, 5, int(month / 10))     # Tens
+	# 	device.letter(1, 4, month % 10)     # Ones
+	# 	device.letter(1, 3, '-')               # dash
+	# 	# Set day
+	# 	device.letter(1, 2, int(year / 10))     # Tens
+	# 	device.letter(1, 1, year % 10)     # Ones
 	if mode == 3:
 		auto = 1;	
 		mode = 1;
@@ -101,7 +102,7 @@ while True:
 		if mode == 2:
 			device.write_text(1, "DATA")
 		if mode == 3:
-			device.write_text(1, "TRYB AUTO")
+			device.write_text(1, "AUTO")
 		time.sleep(1)
 	#wskaznik jasnosci
 	elif not GPIO.input(switch1):
@@ -116,5 +117,3 @@ while True:
 		device.brightness(level)
 		print "Poziom jasnosci:", level
 		time.sleep(0.5);
-	else:
-		pass
