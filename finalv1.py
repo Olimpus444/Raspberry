@@ -20,8 +20,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(switch1, GPIO.IN)
 GPIO.setup(switch2, GPIO.IN) 
 
-tick = 0;
-auto = 0;
+tick = 0
+auto = 0
 		
 def autogo():
 	global mode
@@ -101,7 +101,7 @@ while True:
 		if mode == 2:
 			device.write_text(1, "DATA")
 		if mode == 3:
-			device.write_text(1, "AUTO")
+			device.write_text(1, "TRYB AUTOMATYCZNY")
 		time.sleep(1)
 	#wskaznik jasnosci
 	elif not GPIO.input(switch1):
