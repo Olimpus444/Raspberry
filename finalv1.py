@@ -101,7 +101,7 @@ while True:
 		if mode == 2:
 			device.write_text(1, "DATA")
 		if mode == 3:
-			device.write_text(1, "TRYB AUTOMATYCZNY")
+			device.write_text(1, "TRYB AUTO")
 		time.sleep(1)
 	#wskaznik jasnosci
 	elif not GPIO.input(switch1):
