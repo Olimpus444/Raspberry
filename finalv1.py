@@ -11,7 +11,7 @@ import ZeroSeg.led as led
 import time
 import random
 from datetime import datetime
-import urllib.request
+import urllib
 import json
 import RPi.GPIO as GPIO
 import threading
@@ -58,11 +58,10 @@ def set_interval(func, sec):
 def get_song():
 	global mode
 	url = 'http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=Olimpus444&api_key=5c7c79f93961f31c57d4f2cf349e027a&format=json&limit=1&nowplaying=true'
-	data = json.load(urllib.request(url))
+	data = json.load(urllib.urlopen(url))
 	if 'recenttracks' in data:
 		if 'track' in data['recenttracks']:
 			if '@attr' in data['recenttracks']['track'][0]:
-				print('jest')
 				mode = 1
 				artistAndTitle = data['recenttracks']['track'][0]['name'] + ' --BY-- ' + data['recenttracks']['track'][0]['artist']['#text']
 				return artistAndTitle
@@ -90,5 +89,5 @@ def render_content():
 		# Set seconds
 		device.letter(1, 2, int(second / 10))   # Tens
 		device.letter(1, 1, second % 10)        # Ones
-
-set_interval(render_content(), 30)
+while True:
+	set_interval(render_content(), 30)
